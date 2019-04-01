@@ -1,9 +1,9 @@
 <h1>Most Dangerous Day</h1>
 <h3><%= params['start_date'] %> - <%= params['end_date'] %></h3>
 <h2>Most Dangerous Day</h2>
-<h3><%= @asteroid_facade.first["close_approach_data"].first["close_approach_date"] %>/h3>
+<h3><%= @asteroid_facade[0] %>/h3>
 <ul>
-  <% @asteroid_facade.each do |asteroid| %>
+  <% @asteroid_facade[1].each do |asteroid| %>
     <li class="asteroid">Name: <%= asteroid['name'] %>   NEO Reference ID: <%= asteroid['id'] %></li>
   <% end %>
 </ul>
