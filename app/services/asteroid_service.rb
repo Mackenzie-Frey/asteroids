@@ -3,8 +3,8 @@ class AsteroidService
               :end_date
 
   def initialize(params)
-    @start_date = params['start_date']
-    @end_date = params['end_date']
+    @start_date = params['start_date'].to_date.to_s
+    @end_date = params['end_date'].to_date.to_s
   end
 
   def conn
