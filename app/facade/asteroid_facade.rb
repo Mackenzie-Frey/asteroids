@@ -8,9 +8,8 @@ class AsteroidFacade
     @asteroid_service = asteroid_service["near_earth_objects"]
   end
 
-  def most_dangerous_day(date_asteroids)
-    date = (date_asteroids.max_by{|k,v| v}).first
-    @asteroid_service[date]
+  def most_dangerous_day(dangerous_asteroids_by_date)
+    dangerous_asteroids_by_date.max_by{|k,v| v.count}
   end
 
   def number_of_days
@@ -26,7 +25,6 @@ class AsteroidFacade
       @asteroid_service[date].each do |asteroid|
         if asteroid["is_potentially_hazardous_asteroid"]
           dangerous_asteroids_by_date[date] << asteroid
-          binding.pry
         end
       end
       count += 1
