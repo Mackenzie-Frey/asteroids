@@ -26,10 +26,3 @@ context 'A guest user can fill in the form' do
     expect(page).to have_content("NEO Reference ID: 3794979")
   end
 end
-
-# https://api.nasa.gov/api.html
-
-# The resulting page will display the most dangerous day in that range based on which day
-# has the most `
-# is_potentially_dangerous_asteroid` set to `true`. Given the scenario below, it should
-# be January 1, 2018 with 3 potentially dangerous asteroids.
