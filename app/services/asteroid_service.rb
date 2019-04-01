@@ -9,6 +9,6 @@ class AsteroidService
 
   def conn
     response = Faraday.get("https://api.nasa.gov/neo/rest/v1/feed?start_date=#{start_date}&end_date=#{end_date}&api_key=#{ENV['NASA_API_KEY']}")
-    result = JSON.parse(response.body)
+    JSON.parse(response.body)
   end
 end
