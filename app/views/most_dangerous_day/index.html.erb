@@ -1,1 +1,8 @@
 <h1>Most Dangerous Day</h1>
+<h2><%= params['start_date'] %> - <%= params['end_date'] %></h2>
+
+<ul>
+  <% thing.each do |asteroid| %>
+    <li class="asteroid">Name: (<%= asteroid.name %>)   NEO Reference ID: <%= asteroid.id %></li>
+  <% end %>
+</ul>
