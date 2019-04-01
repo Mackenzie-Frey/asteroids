@@ -5,7 +5,7 @@ class AsteroidFacade
   def initialize(params, asteroid_service)
     @start_date = params['start_date']
     @end_date = params['end_date']
-    @asteroid_service = asteroid_service
+    @asteroid_service = asteroid_service["near_earth_objects"]
   end
 
   def most_dangerous_day(date_asteroids)
@@ -14,7 +14,7 @@ class AsteroidFacade
   end
 
   def number_of_days
-    (@end_date.to_date - @start_date.to_date).to_i
+    (@end_date.to_date - @start_date.to_date).to_i + 1
   end
 
   def get_asteroid_days
@@ -22,13 +22,10 @@ class AsteroidFacade
     count = 0
     number_of_days.times do
       date = (@start_date.to_date + count).to_s
-      asteroids_by_date = @asteroid_service["near_earth_objects"][date]
+      asteroids_by_date = @asteroid_service[date]
       date_asteroids[date] = asteroids_by_date.count
-      binding.pry
       count += 1
     end
     most_dangerous_day(date_asteroids)
   end
-
-
 end
