@@ -23,7 +23,12 @@ class AsteroidFacade
     number_of_days.times do
       date = (@start_date.to_date + count).to_s
       asteroids_by_date = @asteroid_service[date]
-      date_asteroids[date] = asteroids_by_date.count
+      asteroids_by_date.each do |asteroid|
+        # if asteroid["is_potentially_hazardous_asteroid"]
+          binding.pry
+          date_asteroids[date] = asteroids_by_date.count
+        # end
+      end
       count += 1
     end
     most_dangerous_day(date_asteroids)
